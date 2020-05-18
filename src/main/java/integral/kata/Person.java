@@ -52,6 +52,14 @@ public final class Person {
 	}
 
 	private ArrayList<String> showPostsCallback(
+		final Person person,
+		final boolean self,
+		final boolean nofollow
+	) {
+		return showPostsCallbackInternal(person, self, nofollow).arr;
+	}
+
+	private ArrayListSortHelper showPostsCallbackInternal(
 			final Person person,
 			final boolean self,
 			final boolean nofollow
@@ -65,9 +73,19 @@ public final class Person {
 					posts.add(name + " - " + post.output(self));
 				}
 			}
-			return posts;
+			return new ArrayListSortHelper(posts, null);
 		} else {
-			return new ArrayList<>();
+			return new ArrayListSortHelper(new ArrayList<String>(), null);
+		}
+	}
+
+	// data class
+	final static class ArrayListSortHelper {
+		ArrayList<String> arr;
+		ArrayList<Double> times;
+		public ArrayListSortHelper(ArrayList<String> arr_, ArrayList<Double> times_) {
+			arr = arr_;
+			times = times_;
 		}
 	}
 }
