@@ -17,8 +17,8 @@ public final class Person {
 		timeline.push(new Post(post, when));
 	}
 
-	public void follow(final Person other) {
-		other.followers.add(this);
+	public void follow(final Person person) {
+		person.followers.add(this);
 	}
 
 	public ArrayList<String> showPosts(final Person person) {
@@ -31,6 +31,10 @@ public final class Person {
 
 	public ArrayList<String> seePosts() {
 		return showPostsCallback(this, true, false);
+	}
+
+	public ArrayList<String> viewTimeline(final Person person) {
+		return person.showPostsDirect(this);
 	}
 
 	private ArrayList<String> showPostsCallback(

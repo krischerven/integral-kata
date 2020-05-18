@@ -55,7 +55,7 @@ public final class App {
 		final var bob = new Person("Bob");
 		bob.publish("Darn! We lost!", 2);
 		bob.publish("Good game though.", 1);
-		display(bob.showPostsDirect(alice));
+		display(alice.viewTimeline(bob));
 	}
 
 	private static void display(final ArrayList<String> posts) {
