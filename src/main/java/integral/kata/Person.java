@@ -22,15 +22,23 @@ public final class Person {
 	}
 
 	public ArrayList<String> showPosts(final Person person) {
-		return showPostsCallback(person, false);
+		return showPostsCallback(person, false, false);
+	}
+
+	public ArrayList<String> showPostsDirect(final Person person) {
+		return showPostsCallback(person, false, true);
 	}
 
 	public ArrayList<String> seePosts() {
-		return showPostsCallback(this, true);
+		return showPostsCallback(this, true, false);
 	}
 
-	private ArrayList<String> showPostsCallback(final Person person, final boolean self) {
-		if (person == this || followers.contains(person)) {
+	private ArrayList<String> showPostsCallback(
+			final Person person,
+			final boolean self,
+			final boolean nofollow
+	) {
+		if (nofollow || person == this || followers.contains(person)) {
 			final var posts = new ArrayList<String>();
 			for (final var post : timeline.getPosts()) {
 				if (self) {
