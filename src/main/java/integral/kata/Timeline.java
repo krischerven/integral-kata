@@ -9,6 +9,6 @@ public final class Timeline {
 	}
 
 	public void push(final Post post) {
-		posts.add(post);
+		posts.add(0, post);
 	}
 }
