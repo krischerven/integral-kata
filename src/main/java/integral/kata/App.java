@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 // this project was tested on a custom OpenJDK 15 build
 // it should run on any version of java 10+
+// run 'gradle run' to run the application
 public final class App {
 
 	public final ArrayList<Person> people = new ArrayList<>();
