@@ -42,16 +42,16 @@ public final class Person {
 
 	public ArrayList<String> viewWall() {
 		// it's us, but we want to see the full message
-		// TOOD: sorting
-		final var helper = showPostsCallbackInternal(this, false, false);
-		final var posts = new ArrayList<String>();
-		posts.addAll(seePosts());
+		// TODO: sorting
+		final var posts = showPostsCallbackInternal(this, false, false);
 		for (final var person: following) {
 			// if we are following them, it's guaranteed
 			// that they have us in their followers list
-			posts.addAll(viewTimeline(person));
+			final var tmp = person.showPostsCallbackInternal(this, false, false);
+			posts.arr.addAll(tmp.arr);
+			posts.times.addAll(tmp.times);
 		}
-		return posts;
+		return posts.arr;
 	}
 
 	private ArrayList<String> showPostsCallback(
