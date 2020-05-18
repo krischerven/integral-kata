@@ -56,6 +56,12 @@ public final class App {
 		bob.publish("Darn! We lost!", 2);
 		bob.publish("Good game though.", 1);
 		display(alice.viewTimeline(bob));
+		// scenario #3
+		final var charlie = new Person("Charlie");
+		charlie.publish("I'm in New York today! Anyone wants to have a coffee?", 0);
+		charlie.follow(alice);
+		charlie.follow(bob);
+		display(charlie.viewWall());
 	}
 
 	private static void display(final ArrayList<String> posts) {
