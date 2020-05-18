@@ -1,8 +1,8 @@
 package integral.kata;
 
 public final class Post {
-	String message;
-	double ago;
+	private String message;
+	private double ago;
 
 	public Post(final String message_, final double ago_) {
 		message = message_;
@@ -19,5 +19,9 @@ public final class Post {
 		} else {
 			return message + (!self ? " (" + ((int)ago) + " " + "minutes ago)" : "");
 		}
+	}
+
+	public double getWhen() {
+		return ago;
 	}
 }
