@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 // run 'gradle test' to run unit tests
-public class AppTest {
+public final class AppTest {
 	@Test public void testAppHasAGreeting() {
 		final var john = new Person("John Doe");
 		final var jane = new Person("Jane Doe");
@@ -33,9 +33,9 @@ public class AppTest {
 		jane.follow(john);
 		jane.follow(joe);
 		for (short i = 0; i < 2; ++i) {
-			var x = john.showPosts(jane).size()+joe.showPosts(jane).size();
+			final var x = john.showPosts(jane).size()+joe.showPosts(jane).size();
 			assertEquals(
-					"Want: size() == " + i+1 + ", Got: size() == " + x,
+					"Want: size() == " + (i+1) + ", Got: size() == " + x,
 					x,
 					i+1
 			);
