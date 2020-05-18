@@ -15,7 +15,7 @@ public final class Person {
 		name = name_;
 	}
 
-	public void publish(final String post, final int when) {
+	public void publish(final String post, final double when) {
 		timeline.push(new Post(post, when));
 	}
 

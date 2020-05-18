@@ -49,16 +49,16 @@ public final class App {
 	public static void coreLogic() {
 		// scenario #1
 		final var alice = new Person("Alice");
-		alice.publish("I love the weather today.", 5);
+		alice.publish("I love the weather today.", 5.0);
 		display(alice.seePosts());
 		// scenario #2
 		final var bob = new Person("Bob");
-		bob.publish("Darn! We lost!", 2);
-		bob.publish("Good game though.", 1);
+		bob.publish("Darn! We lost!", 2.0);
+		bob.publish("Good game though.", 1.0);
 		display(alice.viewTimeline(bob));
 		// scenario #3
 		final var charlie = new Person("Charlie");
-		charlie.publish("I'm in New York today! Anyone wants to have a coffee?", 0);
+		charlie.publish("I'm in New York today! Anyone wants to have a coffee?", 15.0/60.0);
 		charlie.follow(alice);
 		charlie.follow(bob);
 		display(charlie.viewWall());

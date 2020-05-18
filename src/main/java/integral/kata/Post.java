@@ -2,9 +2,9 @@ package integral.kata;
 
 public final class Post {
 	String message;
-	int ago;
+	double ago;
 
-	public Post(final String message_, final int ago_) {
+	public Post(final String message_, final double ago_) {
 		message = message_;
 		ago = ago_;
 	}
@@ -14,6 +14,10 @@ public final class Post {
 	}
 
 	public String output(final boolean self) {
-		return message + (!self ? " (" + ago + " " + "minutes ago)" : "");
+		if (ago < 1) {
+			return message + (!self ? " (" + ((int)(ago*60)) + " " + "seconds ago)" : "");
+		} else {
+			return message + (!self ? " (" + ((int)ago) + " " + "minutes ago)" : "");
+		}
 	}
 }
