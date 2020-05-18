@@ -13,7 +13,7 @@ public final class Post {
 		message = message_;
 	}
 
-	public String output() {
-		return message + " (" + ago + " " + "minutes ago)";
+	public String output(final boolean self) {
+		return message + (!self ? " (" + ago + " " + "minutes ago)" : "");
 	}
 }
