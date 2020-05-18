@@ -1,6 +1,8 @@
 package integral.kata;
 import java.util.LinkedList;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Arrays;
 
 public final class Person {
 
@@ -52,6 +54,13 @@ public final class Person {
 			posts.times.addAll(tmp.times);
 		}
 		return posts.arr;
+		/*
+		Collections.sort(posts.times);
+		final var posts2 = Arrays.asList(new String[posts.arr.size()]);
+		for (var i = 0; i < posts.times.size(); i++) {
+			posts2.set(i, posts.arr.get(i));
+		}
+		return new ArrayList<String>(posts2);*/
 	}
 
 	private ArrayList<String> showPostsCallback(
