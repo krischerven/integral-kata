@@ -6,7 +6,7 @@ import java.util.ArrayList;
 // run 'gradle run' to run the application
 public final class App {
 
-	public final ArrayList<Person> people = new ArrayList<>();
+	private static short count = 0;
 
 	public static void main(final String[] args) {
 		System.out.println("Started up the application");
@@ -47,4 +47,14 @@ public final class App {
 				Alice - I love the weather today (5 minutes ago)
 	****************************************************************************/
 	public static void coreLogic() {}
+
+	private static void displayPosts(final ArrayList<String> posts) {
+		++count;
+		System.out.println("(Scenario #"+count+")");
+		System.out.println("-".repeat(55));
+		for (final var post: posts) {
+			System.out.println(post);
+		}
+		System.out.println("-".repeat(55));
+	}
 }
