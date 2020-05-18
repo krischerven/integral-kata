@@ -46,14 +46,28 @@ public final class App {
 				Bob - Damn! We lost! (2 minutes ago)
 				Alice - I love the weather today (5 minutes ago)
 	****************************************************************************/
-	public static void coreLogic() {}
+	public static void coreLogic() {
+		// scenario #1
+		final var alice = new Person("Alice");
+		alice.publish("I love the weather today.", 5);
+		displayPosts(alice.seePosts());
+		// scenario #2
+		final var bob = new Person("Bob");
+		bob.publish("Darn! We lost!", 2);
+		bob.publish("Good game though.", 1);
+		displayPosts(bob.showPostsDirect(alice));
+	}
 
 	private static void displayPosts(final ArrayList<String> posts) {
 		++count;
 		System.out.println("(Scenario #"+count+")");
 		System.out.println("-".repeat(55));
-		for (final var post: posts) {
-			System.out.println(post);
+		if (posts.size() == 0) {
+			System.out.println("(nothing to display)");
+		} else {
+			for (final var post: posts) {
+				System.out.println(post);
+			}
 		}
 		System.out.println("-".repeat(55));
 	}
